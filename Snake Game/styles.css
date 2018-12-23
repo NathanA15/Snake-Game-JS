@@ -1,0 +1,12 @@
+#snakeboard {
+	border: solid #4666FF 3px;
+	left: 100%;
+	background-color: black;
+};
+
+#center-canvas{
+	position: absolute;
+	top: 20%;
+	left: 28%;
+};
+  
