@@ -77,7 +77,7 @@ function checkIfDead() {
 		alert('Sorry you are dead\n You\'re dead \n Score:' + applesEaten);
 		return;
 	} else if (checkIfHeadInBody()) {
-		alert('Sorry you are dead\n Biatch!!!');
+		alert('Sorry you are dead\n You\'re dead \n Score:' + applesEaten);
 		clearInterval(timer);
 		return;
 	}
@@ -249,9 +249,6 @@ function movingSnakeBody() {
 		snakeBody[i] = Array.from(snakeBody[i - 1]);
 	}
 };
-
-
-
 
 
 
