@@ -129,6 +129,7 @@ function checkAppleEaten() {
 		applesEaten += 1;
 		randomApple();
 		addPartToBody();
+		$('#count').text(applesEaten);
 		// console.log(applesEaten + "apples eaten");
 	} else {
 		displaySnakeBody();
