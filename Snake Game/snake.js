@@ -35,7 +35,7 @@ var applesEaten = 0;
 
 window.addEventListener('keydown', function(event) {
 	code = event.keyCode;
-	// console.log(code);
+	console.log(code);
 });
 
 
@@ -74,7 +74,7 @@ function erasingSnakeOnScreen() {
 function checkIfDead() {
 	if (snakeBody[0][0] > 585 || snakeBody[0][1] > 285 || snakeBody[0][0] < 0 || snakeBody[0][1] < 0) {
 		clearInterval(timer);
-		alert('Sorry you are dead\n Biatch!!!');
+		alert('Sorry you are dead\n You\'re dead \n Score:' + applesEaten);
 		return;
 	} else if (checkIfHeadInBody()) {
 		alert('Sorry you are dead\n Biatch!!!');
@@ -188,21 +188,36 @@ function addPartToBody() {
 };
 
 
-function movingHeadSnake() {
+function notMovingBackwards() {
+	if (lastMove == 'up' && (code == 40 || code == 83 || code == 76)) {
+		code = 38;
+	} else if (lastMove == 'down' && (code == 38 || code == 90 || code == 79)) {
+		code = 40;
+	} else if (lastMove == 'left' && (code == 39 || code == 68 || code == 77)) {
+		code = 37;
+	} else if (lastMove == 'right' && (code == 37 || code == 81 || code == 75)) {
+		code = 39;
+	} 
+};
 
-	if (code == 37) { // left
+
+
+function movingHeadSnake() {
+	notMovingBackwards();
+
+	if (code == 37 || code == 81 || code == 75) { // left
 		snakeBody[0][0] -= 15;
 		lastMove = 'left';
 		// console.log(lastMove);
-	} else if (code == 39) { // right
+	} else if (code == 39 || code == 68 || code == 77) { // right
 		snakeBody[0][0] += 15;
 		lastMove = 'right';
 		// console.log(lastMove);
-	} else if (code == 38) { // up
+	} else if (code == 38 || code == 90 || code == 79) { // up
 		snakeBody[0][1] -= 15;
 		lastMove = 'up';
 		// console.log(lastMove);
-	} else if (code == 40) { // down
+	} else if (code == 40 || code == 83 || code == 76) { // down
 		snakeBody[0][1] += 15;
 		lastMove = 'down';
 		// console.log(lastMove);
